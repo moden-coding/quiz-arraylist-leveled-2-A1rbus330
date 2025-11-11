@@ -27,5 +27,25 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
+        while (true){
+            String input = String.valueOf(scanner.nextLine());
+            if(input.equals("end")){
+                break;
+            }
+            for(String dupe: list){
+                if (input.equals(dupe)){
+                    System.out.println("Delete existing name?");
+                    String yesOrNo = String.valueOf(scanner.nextLine());
+                    if (yesOrNo.equals("yes")){
+                    list.remove(dupe);
+                    }
+                }
+            }
+            list.add(input);
+        }
+        for(String name : list){
+            System.out.println(name);
+        }
     }
 }
